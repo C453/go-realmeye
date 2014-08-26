@@ -26,13 +26,13 @@
                 <tr>
                   <td>Fame</td>
                   <td>
-                    <span class="numeric">{{.Specific.Fame}}</span>{{if .Specific.Fame}} ({{.Specific.FameRank}}<sup>{{.Specific.FameRank | ordinal}}</sup>){{end}}
+                    <span class="numeric">{{.Specific.Fame}}</span>{{if .Specific.Fame}} (<a href="/top-players-by-fame/">{{.Specific.FameRank}}<sup>{{.Specific.FameRank | ordinal}}</sup></a>){{end}}
                   </td>
                 </tr>
                 <tr>
                   <td>Exp</td>
                   <td>
-                    <span class="numeric">{{.Specific.Exp}}</span>{{if .Specific.Exp}} ({{.Specific.ExpRank}}<sup>{{.Specific.ExpRank | ordinal}}</sup>){{end}}
+                    <span class="numeric">{{.Specific.Exp}}</span>{{if .Specific.Exp}} (<a href="/top-players-by-exp"><sup>{{.Specific.ExpRank | ordinal}}</sup></a>){{end}}
                   </td>
                 </tr>
                 <tr>
@@ -45,7 +45,7 @@
                 <tr>
                   <td>Account fame</td>
                   <td>
-                    <span class="numeric">{{.Specific.AccountFame}}</span>{{if .Specific.AccountFameRank}} ({{.Specific.AccountFameRank}}<sup>{{.Specific.AccountFameRank | ordinal}}</sup>){{end}}
+                    <span class="numeric">{{.Specific.AccountFame}}</span>{{if .Specific.AccountFameRank}} (<a href="/top-players-by-account-fame">{{.Specific.AccountFameRank}}<sup>{{.Specific.AccountFameRank | ordinal}}</sup></a>){{end}}
                   </td>
                 </tr>
                 {{if .Specific.Guild}}

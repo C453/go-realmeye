@@ -114,10 +114,14 @@ func (m *MySQL) cache_players() {
 			if len(_member) > 0 {
 				__member, err := strconv.Atoi(_member)
 
+				if __member == 0 {
+				continue
+				}
+				
 				if err != nil {
 					panic(err)
 				}
-
+			
 				if temp[__member] == nil {
 					fmt.Printf("[DBCACHE] Cannot assign guild membership to account #%v (not in 'accounts')\n", __member)
 				} else {
@@ -136,6 +140,11 @@ func (m *MySQL) cache_players() {
 		id, class, bestlevel, bestfame := -1, -1, 0, 0
 
 		err := rows.Scan(&id, &class, &bestlevel, &bestfame)
+		
+		if id == 0 {
+			continue;
+		}
+		
 		if err != nil {
 			panic(err)
 		}
@@ -164,6 +173,10 @@ func (m *MySQL) cache_players() {
 	for rows.Next() {
 		id := -1
 		accountfame := 0
+		
+		if id == 0 {
+			continue;
+		}
 
 		err := rows.Scan(&id, &accountfame)
 		if err != nil {
@@ -188,6 +201,11 @@ func (m *MySQL) cache_players() {
 		dead, hasBackpack := false, false
 
 		err := rows.Scan(&accId, &dead, &lastSeen, &charType, &level, &exp, &fame, &items, &stats, &tex1, &tex2, &petId, &hasBackpack, &skin)
+		
+		if accId == 0 {
+			continue;
+		}
+		
 		if err != nil {
 			panic(err)
 		}
@@ -237,6 +255,10 @@ func (m *MySQL) cache_players() {
 	}
 	for rows.Next() {
 		accId, petId, objType := -1, -1, -1
+		
+		if accId | petId == 0 {
+			continue;
+		}
 
 		err := rows.Scan(&accId, &petId, &objType)
 		if err != nil {
@@ -334,10 +356,12 @@ func (m *MySQL) cache_players() {
 func (m *MySQL) RecentChanges() []RecentChange {
 	return []RecentChange{
 		RecentChange{
-			Date: "21 July 2014",
+			Date: "25 August 2014",
 			Changes: []template.HTML{
 				template.HTML(`Now showing stats from <a href="http://c453.pw">c453.pw</a>.`),
 				template.HTML(`Updated player profiles with fame/experience ranks.`),
+				template.HTML(`Added "Top Players by X" page`),
+				template.HTML(`Fixed a problem with ordinals (st, nd, rd, th)`),
 			},
 		},
 	}

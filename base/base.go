@@ -23,6 +23,32 @@ type Page struct {
 	Specific    interface{}
 }
 
+func ranking(num int) string {
+    if num >= 1 && num <= 100 {
+        return ""
+    } else if num >= 101 && num <= 200 {
+        return "101"
+    } else if num >= 201 && num <= 300 {
+        return "201"
+    } else if num >= 301 && num <= 400 {
+        return "301"
+    } else if num >= 401 && num <= 500 {
+        return "401"
+    } else if num >= 501 && num <= 600 {
+        return "501"
+    } else if num >= 601 && num <= 700 {
+        return "601"
+    } else if num >= 701 && num <= 800 {
+        return "701"
+    } else if num >= 801 && num <= 900 {
+        return "801"
+    } else if num >= 901 && num <= 1000 {
+        return "901"
+    } else {
+        return ""
+    }
+}
+
 func Ordinal(num int) string {
     switch (num % 100) {
         case 11:

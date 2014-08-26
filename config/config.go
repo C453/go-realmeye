@@ -13,10 +13,12 @@ type config struct {
 	Schema   string
 	User     string
 	Password string
+	Port     string
 	Cached   bool
 }
 
 var DB db.Source = nil
+var PORT string
 
 func Load(path string) {
 	data, err := ioutil.ReadFile(path)
@@ -28,6 +30,9 @@ func Load(path string) {
 	if err != nil {
 		panic(err)
 	}
+	
+	PORT = ":" + c.Port
+	
 	switch c.Type {
 	case "mysql":
 		DB = db.Source(&db.MySQL{
