@@ -18,7 +18,8 @@ You can easily configure the DB settings in the config.json file:
 	"User": "realmeye",
 	"Password": "",
 	"Schema": "rotmg",
-	"Cached": true
+	"Cached": true,
+	"Port": 3001
 }
 ```
 

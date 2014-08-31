@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{template "head"}}
+    <meta name="keywords" content="{{.Keywords}}">
+    <meta name="description" content="{{.Description}}">
+    <link rel="canonical" href="{{.Location}}">
+    <title>{{if .Title}}{{.Title}} | {{end}}RealmEye</title>
+</head>
+
+<body>
+    {{template "header"}}
+    <div class="container">
+        {{template "noscript"}}
+        <div class="row">
+            <div class="span12">
+                <div class="offset2 span8">
+                    <h3>Questions about how to use RealmEye</h3>
+                    <a name="how-to-create-a-realmeye-account"></a>
+                    <h4>How to create a RealmEye account?</h4>
+                    <p>Accounts on RealmEye are linked to RotMG accounts. Your user name on RealmEye is the same as your RotMG player name. To get a password you have to log in to RotMG and <a href="/mreyeball#password">ask for a password from MrEyeball</a>. After you got your password, you can <a href="/log-in">log in here</a>.</p>
+                    <a name="who-is-mr-eyeball"></a>
+                    <h4>Who is Mr. Eyeball?</h4>
+                    <p>Mr. Eyeball is a RotMG player, through whom you can interact with RealmEye.com. His IGN is MrEyeball. You can find <a href="/mreyeball">more information about him here</a>.</p>
+                    <h3>Questions about how the stats are produced</h3>
+                    <a name="dead-characters"></a>
+                    <h4>I see long dead characters listed. Why&apos;s that?</h4>
+                    <p>While our heuristic death detection method works most of the time, we might still miss a few deaths. The rule for these cases is: characters not seen for two weeks will be deleted. Our choice of two weeks is arbitrary. We might decrease it in the future.</p>
+                    <a name="not-listed-guild-members"></a>
+                    <h4>Some members of my guild are not listed. How can that be?</h4>
+                    <p>Either we haven&apos;t seen them in the past two weeks, or we saw 50 other players as member of your guild more recently.</p>
+                    <a name="missing-guild-members"></a>
+                    <h4>We have 2 guild members not showing up and they have been active and there is only 4 of us. Can you fix it?</h4>
+                    <p>Probably they haven&apos;t shown up in the nexus since they joined your guild, or our agent was offline when they did. It will be fixed automatically the next time they play.</p>
+                    <a name="no-player-page"></a>
+                    <h4>I have no player page, will you add me?</h4>
+                    <p>Only players who reached rank 1 are registered. So go, kill some more monsters!</p>
+                    <a name="not-all-my-characters-are-visible"></a>
+                    <h4>I have 17 chars on my acc, but it only shows 14. Why is that?</h4>
+                    <p>RotMG doesn&apos;t provide character ids, so we can only distinguish your characters by their classes. We only save the ones with the highest exp. We may come up with some heuristics to distinguish all your characters someday in the indefinite future. If the RotMG developers decide to provide character ids, then we will be able to list all your characters.</p>
+                    <a name="not-all-chars-shown-simultaneously"></a>
+                    <h4>I have 3 character slots, necro, mystic, and priest. RealmEye.com is only showing 2 at a time. Why is that?</h4>
+                    <p>We only show one character with 0 fame for each player. So make sure that you have at least 1 fame on all but one of your characters.</p>
+                    <a name="how-are-the-stats-produced"></a>
+                    <h4>Ok, I read the previous answers. So how are the stats produced?</h4>
+                    <p>Whenever you enter or leave the Nexus with one of your best characters (with the highest exp for that class), we take a note and update its stats, along with your player&apos;s and guild&apos;s stats.</p>
+                    <h3>Suggestions you made</h3>
+                    <h4>Show me, how many hours I&apos;ve played!</h4>
+                    <p>We don&apos;t know, and I would say thankfully so. But for your own amusement set up <a href="https://github.com/atomizer/muledump">Atomizer&apos;s Muledump</a>, which can show you this and much more.</p>
+                    <a name="integrate-muledump"></a>
+                    <h4>Integrate <a href="https://github.com/atomizer/muledump">Atomizer&apos;s Muledump</a> to RealmEye!</h4>
+                    <p>Muledump uses your email and password to access your account data. You should never tell those to anyone, including us. So no, we won&apos;t add the features of Muledump to the site.</p>
+                    <h4>You should add a fame calculator!</h4>
+                    <p>We don&apos;t have the data to calculate your total fame. Set up <a href="https://github.com/atomizer/muledump">Atomizer&apos;s Muledump</a>. It has one.</p>
+                    <h4>Add a fitting room!</h4>
+                    <p>Atomizer&apos;s RotMG fitting room is available <a href="http://atomizer.github.com/fitting/">here</a>.</p>
+                    <h3>Other questions</h3>
+                    <a name="how-fame-works"></a>
+                    <h4>What does Fame mean?</h4>
+                    <p>We use the word Fame with different meanings in different places. On RealmEye.com:
+                        <ul>
+                            <li>Fame displayed for a character means the base fame of that character. If you play with a level 20 character, the orange bar on the right will show this number.</li>
+                            <li>Fame displayed for a player means the sum of the fame of that player&apos;s characters.</li>
+                            <li>Fame displayed for a guild means the sum of the fame of that guild&apos;s members. This is not the fame you see in your guild hall.</li>
+                            <li>Account Fame displayed for a player means the fame you see on the top right corner in the game. This is the sum of the total fame you&apos;ve gained for your deaths, minus the amount you have spent on items and pet feeding.</li>
+                        </ul>
+                    </p>
+                    <a name="otherSuggestions"></a>
+                    <h4>I have some wonderful suggestions to improve the site. Will you consider adding them?</h4>
+                    <p>Sure! Send <a href="/feedback">feedback</a> and we will do our best.</p>
+                    <a name="accidentally-deleted-guild-member"></a>
+                    <h4>If I have deleted someone from my guild by accident, how can I add them back?</h4>
+                    <p>When they show up the next time in the nexus as members of your guild, they will be added back automatically.</p>
+                    <a name="respond-to-renaming-pets"></a>
+                    <h4>There should be a response when renaming pets :)</h4>
+                    <p>There should always be a response to all of your messages to Mr. Eyeball. If you haven&apos;t got any, then something went wrong. Please send it one more time.</p>
+                    <a name="what-is-cqc"></a>
+                    <h4>What is CQC?</h4>
+                    <p>CQC stands for Class Quests Completed. It is the number of class quests that you have completed for the class of your character. All the table headings with abbreviations can be decoded: hover your mouse over them.</p>
+                    <a name="links-in-descriptions"></a>
+                    <h4>The url in my description will not link to the site. Why is that?</h4>
+                    <p>We only allow a few domains to be linked from the descriptions. If you would like a domain to be linked, and you think its content is safe for everyone, then send <a href="/feedback">feedback</a> and we will consider adding it to the enabled domains.</p>
+                    <a name="site-doesnt-work-on-my-device"></a>
+                    <h4>The site doesn&apos;t work on my device / in my browser. Will you fix that?</h4>
+                    <p>We would love to. Most of the time this is hard, as we can&apos;t reproduce your problem, and even if we try to fix, we don&apos;t know when we may succeed. If you have some javascript-fu, maybe you can show us to the right direction. We got some feedback that now the menus work with iOS devices.</p>
+                    <a name="ie-doesnt-work"></a>
+                    <h4>I&apos;m using Internet Explorer and the site doesn&apos;t work.</h4>
+                    <p>Please update your browser to version 9 or newer.</p>
+                    <a name="ie9-doesnt-work"></a>
+                    <h4>I&apos;m using Internet Explorer 9 or newer and the site still doesn&apos;t work.</h4>
+                    <p>Please make sure that your firewall or virus scanner is not blocking css and javascript files on RealmEye.com.</p>
+                    <a name="how-do-you-render"></a>
+                    <h4>How do you render the characters, pets and the equipment?</h4>
+                    <p>We used to use <a href="https://github.com/atomizer/muledump">Atomizer&apos;s Muledump</a>, but we had to implement our own version for various reasons.</p>
+                    <a name="where-is-mr-eyeball"></a>
+                    <h4>Which server is Mr. Eyeball in, or is this just something that is set up to answer stuff?</h4>
+                    <p>Mr. Eyeball is sitting in his vault with his sheep friends, eagerly waiting to help you.</p>
+                    <a name="who-are-you"></a>
+                    <h4>Who are you? Why are you doing this?</h4>
+                    <p>We are a team of two programmers, playing RotMG since its early days. RealmEye was started as a fun side project <span class="timeago" title="2012-10-15T17:27:53Z">time of the first commit</span>. It seems like the need is there, so we plan to keep it running and improving.</p>
+                    <a name="whats-with-the-ads"></a>
+                    <h4>Hey, what&apos;s this with the ads?</h4>
+                    <p>If you don&apos;t like ads, then you are probably already using an <a href="https://google.com/search?q=adblock">adblocker</a>, so you can&apos;t see them anyway.</p>
+                </div>
+            </div>
+            <div class="span2"></div>
+        </div>
+    </div>
+</body>
+
+</html>

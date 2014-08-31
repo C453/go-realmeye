@@ -10,6 +10,8 @@ import (
 	"github.com/trapped/realmeye/player"
 	"github.com/trapped/realmeye/recentchanges"
 	"github.com/trapped/realmeye/topplayers"
+	"github.com/trapped/realmeye/q-and-a"
+	"github.com/trapped/realmeye/privacypolicy"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -33,6 +35,10 @@ func registerHandlers(m *mux.Router) {
 	//Leaderboards
 	m.HandleFunc("/top-players-by-{sorting}", topplayers.Serve)
 	m.HandleFunc("/top-players-by-{sorting}/{offset}", topplayers.Serve)
+	
+	//etc
+	m.HandleFunc("/q-and-a", qanda.Serve)
+	m.HandleFunc("/privacy-policy", privacypolicy.Serve)
 }
 
 func main() {
@@ -49,5 +55,5 @@ func main() {
 	n := negroni.New(negroni.NewRecovery(), negroni.NewLogger())
 	n.Use(negroni.NewStatic(http.Dir("static")))
 	n.UseHandler(m)
-	n.Run(":3001")
+	n.Run(config.Port)
 }
